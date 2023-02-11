@@ -1,3 +1,4 @@
+import { RAT } from './interfaces/rat.interface';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'meta';
+  dados: RAT = {};
+
+  capturaDados(dados: any) {
+    this.dados = dados;
+    console.log(this.dados);
+  }
 }
