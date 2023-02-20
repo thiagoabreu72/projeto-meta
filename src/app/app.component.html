@@ -1,6 +1,8 @@
 <div class="card">
   <div class="container">
     <app-input (dadosInsercao)="this.capturaDados($event)"></app-input>
-    <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+    <div class="row">
+      <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+    </div>
   </div>
 </div>
