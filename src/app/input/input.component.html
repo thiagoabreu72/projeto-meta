@@ -75,17 +75,21 @@
   </div>
 
   <div class="row">
-    <div class="mb-3">
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="this.capturaValores()"
-      >
-        Inserir
-      </button>
+    <div class="col">
+      <div class="mb-3">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="this.capturaValores()"
+        >
+          Inserir
+        </button>
+      </div>
     </div>
-    <div class="mb-3">
-      <button type="button" class="btn btn-primary" click="">Consultar</button>
+    <div class="col">
+      <div class="mb-3">
+        <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+      </div>
     </div>
   </div>
 </div>

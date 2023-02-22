@@ -17,6 +17,7 @@ export class DashboardComponent implements OnChanges, OnInit {
   @Input() dadosInsercao: any = {};
   dados: any;
   dadosStorage: any[] = [];
+  percentual: number = 70;
 
   constructor(private http: HttpClient) {}
 
@@ -31,7 +32,7 @@ export class DashboardComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    const canvas = document.getElementById('myChart') as HTMLCanvasElement;
+    const canvas = document.getElementById('myCanva') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
