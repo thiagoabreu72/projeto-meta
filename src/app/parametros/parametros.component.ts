@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Parametros } from '../interfaces/parametros.interface';
 
 @Component({
   selector: 'app-parametros',
@@ -8,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ParametrosComponent implements OnInit {
   selecao: FormGroup;
+  parametros: Parametros = {};
 
   constructor() {
     this.selecao = new FormGroup({
@@ -28,6 +30,7 @@ export class ParametrosComponent implements OnInit {
       percentual: this.selecao.value.percentual,
     };
 
+    this.parametros = dados;
     this.gravarDados(dados);
   }
 

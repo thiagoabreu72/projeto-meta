@@ -9,16 +9,18 @@
           class="form-control"
           id="dataInicial"
           formControlName="dataInicial"
+          [(ngModel)]="this.parametros.dataInicial"
         />
       </div>
 
       <div class="mb-3">
-        <label for="dataFinal" class="form-label">Data Inicial</label>
+        <label for="dataFinal" class="form-label">Data Final</label>
         <input
           type="date"
           class="form-control"
           id="dataFinal"
           formControlName="dataFinal"
+          [(ngModel)]="this.parametros.dataFinal"
         />
       </div>
 
@@ -32,6 +34,7 @@
           class="form-control"
           placeholder="99.999,99"
           formControlName="valor"
+          [(ngModel)]="this.parametros.valor"
         />
       </div>
 
@@ -46,6 +49,7 @@
           formControlName="percentual"
           pattern="[0-9]{2}"
           placeholder="99"
+          [(ngModel)]="this.parametros.percentual"
         />
       </div>
 
@@ -59,6 +63,11 @@
             >
               Inserir
             </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <button type="button" class="btn btn-primary">Consultar</button>
           </div>
         </div>
       </div>
