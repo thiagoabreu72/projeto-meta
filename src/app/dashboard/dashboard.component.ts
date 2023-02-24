@@ -49,7 +49,7 @@ export class DashboardComponent implements OnChanges, OnInit {
         options: {
           responsive: false,
           plugins: {
-            title: { text: 'Meta do Mês em %', display: true },
+            title: { text: 'Conclusão da meta em %', display: true },
           },
         },
       });

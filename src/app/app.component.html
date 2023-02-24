@@ -1,8 +1,44 @@
-<div class="card">
+<!-- <div class="card">
   <div class="container">
-    <app-input (dadosInsercao)="this.capturaDados($event)"></app-input>
-    <!-- <div class="row">
+    !-- <app-input (dadosInsercao)="this.capturaDados($event)"></app-input> --
+    !-- <div class="row">
       <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
     </div> -->
+<!-- <app-parametros></app-parametros>
   </div>
-</div>
+</div> -->
+
+<router-outlet>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab"
+        data-toggle="tab"
+        data-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+        routerLink="/lancamentos"
+      >
+        Lançamentos
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab"
+        data-toggle="tab"
+        data-target="#profile"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+        routerLink="/parametros"
+      >
+        Parâmetros
+      </button>
+    </li>
+  </ul>
+</router-outlet>

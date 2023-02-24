@@ -1,94 +1,98 @@
-<div class="form" [formGroup]="selecao">
-  <div class="mb-3">
-    <label for="competencia" class="form-label" id="labelCompetencia"
-      >Competência</label
-    >
-    <input
-      type="date"
-      class="form-control"
-      id="competencia"
-      placeholder=""
-      formControlName="competencia"
-    />
-  </div>
-
-  <div>
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="selecaoDagRat"
-        id="rat"
-        formControlName="selecaoDagRat"
-        value="RAT"
-      />
-      <label class="form-check-label" for="rat"> RAT </label>
-    </div>
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="radio"
-        name="selecaoDagRat"
-        id="dag"
-        value="DAG"
-        formControlName="selecaoDagRat"
-        checked
-      />
-      <label class="form-check-label" for="dag"> DAG </label>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="ordem" class="form-label">Número DAG/RAT</label>
-    <input
-      type="number"
-      class="form-control"
-      pattern="[0-9]{10}"
-      name="ordem"
-      id="ordem"
-      formControlName="ordem"
-      placeholder="99999999"
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="valor" class="form-label">Valor</label>
-    <input
-      type="number"
-      pattern="[0-9]{5},[0-9]{2}"
-      name="valor"
-      id="valor"
-      class="form-control"
-      placeholder="99.999,99"
-      formControlName="valor"
-    />
-  </div>
-
-  <div class="mb-3">
-    <label for="observacao" class="form-label">Observação</label>
-    <textarea
-      class="form-control"
-      formControlName="observacao"
-      cols="30"
-      rows="3"
-    ></textarea>
-  </div>
-
-  <div class="row">
-    <div class="col">
+<div class="card">
+  <div class="container">
+    <div class="form" [formGroup]="selecao">
       <div class="mb-3">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="this.capturaValores()"
+        <label for="competencia" class="form-label" id="labelCompetencia"
+          >Competência</label
         >
-          Inserir
-        </button>
+        <input
+          type="date"
+          class="form-control"
+          id="competencia"
+          placeholder=""
+          formControlName="competencia"
+        />
       </div>
-    </div>
-    <div class="col">
+
+      <div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="selecaoDagRat"
+            id="rat"
+            formControlName="selecaoDagRat"
+            value="RAT"
+          />
+          <label class="form-check-label" for="rat"> RAT </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="selecaoDagRat"
+            id="dag"
+            value="DAG"
+            formControlName="selecaoDagRat"
+            checked
+          />
+          <label class="form-check-label" for="dag"> DAG </label>
+        </div>
+      </div>
+
       <div class="mb-3">
-        <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+        <label for="ordem" class="form-label">Número DAG/RAT</label>
+        <input
+          type="number"
+          class="form-control"
+          pattern="[0-9]{10}"
+          name="ordem"
+          id="ordem"
+          formControlName="ordem"
+          placeholder="99999999"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="valor" class="form-label">Valor</label>
+        <input
+          type="number"
+          pattern="[0-9]{5},[0-9]{2}"
+          name="valor"
+          id="valor"
+          class="form-control"
+          placeholder="99.999,99"
+          formControlName="valor"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="observacao" class="form-label">Observação</label>
+        <textarea
+          class="form-control"
+          formControlName="observacao"
+          cols="30"
+          rows="3"
+        ></textarea>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="mb-3">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="this.capturaValores()"
+            >
+              Inserir
+            </button>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mb-3">
+            <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -8,12 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ParametrosComponent } from './parametros/parametros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    DashboardComponent
+    DashboardComponent,
+    ParametrosComponent
   ],
   imports: [
     BrowserModule,
