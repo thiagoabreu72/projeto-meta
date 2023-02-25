@@ -34,7 +34,6 @@
             id="dag"
             value="DAG"
             formControlName="selecaoDagRat"
-            checked
           />
           <label class="form-check-label" for="dag"> DAG </label>
         </div>
@@ -57,12 +56,13 @@
         <label for="valor" class="form-label">Valor</label>
         <input
           type="number"
-          pattern="[0-9]{5},[0-9]{2}"
+          pattern="[0-9]{25},[0-9]{2}"
           name="valor"
           id="valor"
           class="form-control"
-          placeholder="99.999,99"
           formControlName="valor"
+          placeholder="999.999,99"
+          (blur)="this.teste()"
         />
       </div>
 

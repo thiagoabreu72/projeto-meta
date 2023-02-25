@@ -15,7 +15,7 @@ import { ParametrosComponent } from './parametros/parametros.component';
     AppComponent,
     InputComponent,
     DashboardComponent,
-    ParametrosComponent
+    ParametrosComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,9 +24,8 @@ import { ParametrosComponent } from './parametros/parametros.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

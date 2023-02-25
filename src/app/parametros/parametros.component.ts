@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Parametros } from '../interfaces/parametros.interface';
+import { ServicosService } from '../servicos.service';
 
 @Component({
   selector: 'app-parametros',
@@ -11,7 +12,7 @@ export class ParametrosComponent implements OnInit {
   selecao: FormGroup;
   parametros: Parametros = {};
 
-  constructor() {
+  constructor(private servicos: ServicosService) {
     this.selecao = new FormGroup({
       dataInicial: new FormControl({ value: '', disabled: false }),
       dataFinal: new FormControl({ value: '', disabled: false }),
@@ -20,7 +21,16 @@ export class ParametrosComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const dados = this.servicos.consultarParametros();
+    this.parametros = dados[0];
+    this.selecao.setValue({
+      dataInicial: dados[0].dataInicial,
+      dataFinal: dados[0].dataFinal,
+      valor: dados[0].valor,
+      percentual: dados[0].percentual,
+    });
+  }
 
   capturaValores() {
     let dados = {

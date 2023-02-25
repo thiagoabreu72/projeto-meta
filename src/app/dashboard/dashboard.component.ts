@@ -7,6 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { ServicosService } from '../servicos.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,16 +20,16 @@ export class DashboardComponent implements OnChanges, OnInit {
   dadosStorage: any[] = [];
   percentual: number = 70;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private servicos: ServicosService) {}
 
   ngOnChanges(alteracoes: SimpleChanges): void {
-    if (
-      alteracoes['dadosInsercao'].currentValue !==
-        alteracoes['dadosInsercao'].previousValue &&
-      alteracoes['dadosInsercao'].firstChange !== true
-    ) {
-      this.gravarDados();
-    }
+    // if (
+    //   alteracoes['dadosInsercao'].currentValue !==
+    //     alteracoes['dadosInsercao'].previousValue &&
+    //   alteracoes['dadosInsercao'].firstChange !== true
+    // ) {
+    //   this.servicos.gravarDados();
+    // }
   }
 
   ngOnInit() {
@@ -59,42 +60,16 @@ export class DashboardComponent implements OnChanges, OnInit {
     }
   }
 
-  lerDadosJson() {
-    this.http.get('./assets/dados.json').subscribe((dados) => {
-      this.dados = dados;
-      console.log(this.dados);
-    });
-  }
+  //   gravarDados() {
+  //     let dadosLocais = [];
+  //     let retorno = this.servicos.consultarDados() || [];
 
-  gravarDados() {
-    let dadosLocais = []; /*[{
-      competencia: "01/02/2023",
-      tipo: "DAG",
-      ordem: 123456,
-      valor: 100.0,
-      observacao: "testando"
-    }, {
-      competencia: "01/02/2023",
-      tipo: "DAG",
-      ordem: 654321,
-      valor: 100.0,
-      observacao: "testando123456"
-    }]*/
+  //     for (let i = 0; i < retorno.length; i++) {
+  //       //console.log(retorno[i]);
+  //       dadosLocais.push(retorno[i]);
+  //     }
 
-    let retorno = this.consultarDados() || [];
-
-    for (let i = 0; i < retorno.length; i++) {
-      console.log(retorno[i]);
-      dadosLocais.push(retorno[i]);
-    }
-
-    dadosLocais.push(this.dadosInsercao);
-    localStorage.setItem('dados', JSON.stringify(dadosLocais));
-  }
-
-  consultarDados() {
-    //console.log(JSON.parse(localStorage.getItem('dados') || ''))
-    let objeto = JSON.parse(localStorage.getItem('dados') || '0');
-    return objeto;
-  }
+  //     dadosLocais.push(this.dadosInsercao);
+  //     localStorage.setItem('dados', JSON.stringify(dadosLocais));
+  //   }
 }
