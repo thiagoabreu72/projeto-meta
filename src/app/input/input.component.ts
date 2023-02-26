@@ -25,7 +25,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     this.verificaDados();
-    this.servicos.ajustarMascara(5000);
+    //this.servicos.ajustarMascara2('55588885');
   }
 
   async capturaValores() {
@@ -51,16 +51,15 @@ export class InputComponent implements OnInit {
 
   verificaDados() {
     const dados = this.servicos.consultarParametros();
-    if (dados.length === 0) {
+    if (dados.length === 0 || dados === 0) {
       alert('Primeiro cadastre os parâmetros para depois lançar as DAGs/RATs.');
     } else {
       console.log(dados);
     }
   }
 
-  teste() {
+  ajustarMascara() {
     let valorMascara = this.servicos.ajustarMascara(this.selecao.value.valor);
-    alert(valorMascara);
     this.selecao.controls['valor'].setValue(valorMascara);
   }
 

@@ -55,4 +55,9 @@ export class ParametrosComponent implements OnInit {
     let objeto = JSON.parse(localStorage.getItem('dados') || '0');
     return objeto;
   }
+
+  ajustarMascara() {
+    let valorMascara = this.servicos.ajustarMascara(this.selecao.value.valor);
+    this.selecao.controls['valor'].setValue(valorMascara);
+  }
 }

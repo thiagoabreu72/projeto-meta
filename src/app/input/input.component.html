@@ -55,14 +55,14 @@
       <div class="mb-3">
         <label for="valor" class="form-label">Valor</label>
         <input
-          type="number"
+          type="text"
           pattern="[0-9]{25},[0-9]{2}"
           name="valor"
           id="valor"
           class="form-control"
           formControlName="valor"
           placeholder="999.999,99"
-          (blur)="this.teste()"
+          (keyup)="this.ajustarMascara()"
         />
       </div>
 
