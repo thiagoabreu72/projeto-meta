@@ -16,6 +16,8 @@ export class ServicosService {
 
     dadosLocais.push(dadosInsercao);
     localStorage.setItem('dados', JSON.stringify(dadosLocais));
+
+    return false;
   }
 
   consultarParametros() {

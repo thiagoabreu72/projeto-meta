@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import Chart from 'chart.js/auto';
@@ -16,6 +18,7 @@ import { ServicosService } from '../servicos.service';
 })
 export class DashboardComponent implements OnChanges, OnInit {
   @Input() dadosInsercao: any = {};
+  @Output() carregando = new EventEmitter<boolean>();
   dados: any;
   dadosStorage: any[] = [];
   percentual: number = 70;
@@ -23,13 +26,15 @@ export class DashboardComponent implements OnChanges, OnInit {
   constructor(private http: HttpClient, private servicos: ServicosService) {}
 
   ngOnChanges(alteracoes: SimpleChanges): void {
-    // if (
-    //   alteracoes['dadosInsercao'].currentValue !==
-    //     alteracoes['dadosInsercao'].previousValue &&
-    //   alteracoes['dadosInsercao'].firstChange !== true
-    // ) {
-    //   this.servicos.gravarDados();
-    // }
+    if (
+      alteracoes['dadosInsercao'].currentValue !==
+        alteracoes['dadosInsercao'].previousValue &&
+      alteracoes['dadosInsercao'].firstChange !== true
+    ) {
+      let retorno: boolean = this.servicos.gravarDados(this.dadosInsercao);
+      console.log(retorno);
+      this.carregando.emit(retorno);
+    }
   }
 
   ngOnInit() {
@@ -60,16 +65,16 @@ export class DashboardComponent implements OnChanges, OnInit {
     }
   }
 
-  //   gravarDados() {
-  //     let dadosLocais = [];
-  //     let retorno = this.servicos.consultarDados() || [];
+  // gravarDados() {
+  //   let dadosLocais = [];
+  //   let retorno = this.servicos.consultarDados() || [];
 
-  //     for (let i = 0; i < retorno.length; i++) {
-  //       //console.log(retorno[i]);
-  //       dadosLocais.push(retorno[i]);
-  //     }
-
-  //     dadosLocais.push(this.dadosInsercao);
-  //     localStorage.setItem('dados', JSON.stringify(dadosLocais));
+  //   for (let i = 0; i < retorno.length; i++) {
+  //     //console.log(retorno[i]);
+  //     dadosLocais.push(retorno[i]);
   //   }
+
+  //   dadosLocais.push(this.dadosInsercao);
+  //   localStorage.setItem('dados', JSON.stringify(dadosLocais));
+  // }
 }

@@ -2,6 +2,14 @@
   <div class="container">
     <div class="form" [formGroup]="selecao">
       <br />
+      <div class="row" style="flex-wrap: inherit">
+        <button class="btn btn-primary btn-consulta" style="width: 50%">
+          <
+        </button>
+        <button class="btn btn-primary btn-consulta" style="width: 50%">
+          >
+        </button>
+      </div>
       <div class="mb-3">
         <label for="dataInicial" class="form-label">Data Inicial</label>
         <input
@@ -51,7 +59,7 @@
         />
       </div>
 
-      <div class="row">
+      <div class="row" style="text-align: center">
         <div class="col">
           <div class="mb-3">
             <button

@@ -1,3 +1,4 @@
+<app-spinner [carregandoDados]="this.spinner"></app-spinner>
 <div class="card">
   <div class="container">
     <div class="form" [formGroup]="selecao">
@@ -90,7 +91,10 @@
         </div>
         <div class="col">
           <div class="mb-3">
-            <app-dashboard [dadosInsercao]="this.dados"></app-dashboard>
+            <app-dashboard
+              [dadosInsercao]="this.dados"
+              (carregando)="this.capturaValorCarregando($event)"
+            ></app-dashboard>
           </div>
         </div>
       </div>

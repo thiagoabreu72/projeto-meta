@@ -4,13 +4,18 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   dados: RAT = {};
+  carregandoDados: boolean = false;
 
-  capturaDados(dados: any) {
-    this.dados = dados;
-    console.log(this.dados);
-  }
+  // capturaDados(dados: any) {
+  //   this.dados = dados;
+  //   console.log('component');
+  // }
+
+  // capturaValorCarregando(habilita: boolean) {
+  //   this.carregandoDados = habilita;
+  // }
 }

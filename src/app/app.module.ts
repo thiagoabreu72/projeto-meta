@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ParametrosComponent } from './parametros/parametros.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { ParametrosComponent } from './parametros/parametros.component';
     InputComponent,
     DashboardComponent,
     ParametrosComponent,
+    AlertasComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
